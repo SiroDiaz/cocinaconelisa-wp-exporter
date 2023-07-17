@@ -1,5 +1,6 @@
-from abc import ABC
+from bs4 import BeautifulSoup
 
 
-class Formatter(ABC):
-    pass
+class MarkdownFormatter():
+    def __init__(self) -> None:
+        pass

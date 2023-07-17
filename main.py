@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-from src.post import PostList
+from src.post import PostList, download_images
 
 if __name__ == '__main__':
     load_dotenv()
@@ -12,6 +12,10 @@ if __name__ == '__main__':
     posts = post_list.posts
 
     for post in posts:
-        if post.id == 4:
-            print(f"fetching POST with ID {post.id}")
-            post.fetch()
+        post.save_to_file()
+
+    download_images()
+    
+    for post in posts:
+        post.replace_urls_in_md_file()
+
